@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ch-ZN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .item{
+            width: 200px;
+            height: 300px;
+            background: pink;
+            
+        } 
+        #box{
+            width: 500px;
+            height: 500px;
+            background: rgb(203, 60, 134);
+        }
+        #box:hover .item{
+            transform:translateX(300px) ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="item"></div>
+    </div>
+    <script>
+        setTimeout(()=>{
+            box.classList.add("end")
+        },3000)
+    </script>
+</body>
+</html>

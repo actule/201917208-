@@ -1,0 +1,104 @@
+ 
+                浏览器渲染原理
+解析HTML，生成DOM树，解析CSS，生成CSSOM树
+将DOM树和CSSOM树结合，生成渲染树(Render Tree)
+Layout(回流):根据生成的渲染树，进行回流(Layout)，得到节点的几何信息（位置，大小）
+Painting(重绘):根据渲染树以及回流得到的几何信息，得到节点的绝对像素
+Display: 将像素发送给GPU，最后通过调用操作系统Native GUI的API绘制，展示在页面上 
+                CSS 动画的两种做法（transition 和 animation）
+一、transition
+        作用就是补充中间帧
+
+        通过属性或者transform设置开头跟结尾，由transition补充中间帧。
+
+        过渡方式：linear | ease | ease-in | ease-out | cubic-bezier | step-start | step-end | steps
+
+        主要是linear（线性，即匀速）跟ease（淡入淡出）
+
+        语法：
+
+        transition: 属性名 | 时长 | 过渡方式 | 延迟
+        .demo{
+        height: 100px;
+        width:100px;
+        border:1px solid red;
+        transition: width 1s ease 0s;
+        }
+        .demo:hover {
+        width: 100px
+        }
+        transition 可以直接调用属性。例如：
+        .demo{
+        height: 100px;
+        width: 100px;
+        border: 1px solid red;
+        transition: width 1s;
+        }
+        .demo:hover {
+        width: 200px;
+        }
+        注意：
+
+        并不是所有的属性都能过渡
+
+        例如：display: none; => block 是没有过渡的，它会直接消失。
+
+        可以将它改成visibility: hidden =>visible
+
+        background 可以过渡
+
+        Opacity 可以过渡，但是不推荐使用。
+二、animation 属性
+        给transform添加关键帧
+
+        语法：
+
+        animation: 时长 过渡方式 延迟 次数 方向 填充模式 是否暂停 动画名;
+        时长：1s 或者1000ms
+        过渡方式：跟transition取值一样，如linear、ease
+        次数：3 或者 2.4 或者 infinite（循环）
+        方向：reverse（方向）、alternate（原路返回）、alternate-reverse（从反向开始并原路返回）
+        填充模式：none，forwards，backwards，both
+        是否暂停：paused，running
+        以上所有属性都有对应的单独属性写法
+        注意：动画名写在哪个位置都可以，浏览器自动进行就匹配。
+
+        @keyframes 的完整语法
+
+        第一种：from + to
+
+        @keyframes xxx {
+        from{
+            transform: none;
+        }
+        to{
+            transform: translateX(100px);
+        }
+        }
+        第一种：使用百分数划分
+
+        @keyframes xxx {
+        0%{
+            transform: none;
+        }
+        50%{
+            transform: translateX(100px);
+        }
+        100%{
+            transform: translateX(100px) translateY(100px);
+        }
+        }
+
+
+用transform做绝对居中
+ xxx{
+    position：absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50% -50%);
+    }
+    css动画优化
+    js优化
+    使用requestAnimationFrame代替setTimeout或者serInterval
+    css优化
+    使用will-change或translata

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+        width: 200px;
+        height: 200px;
+        background:pink;
+        transition: transform 1s linear;
+        }
+        .b{
+            transform: translateX(150px);
+        }
+        .c{
+            transform: translateX(150px) translateY(150px);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="button">按钮</button>
+    <script>
+        button.onclick=function(){
+            box.classList.add("b")
+            setTimeout(() => {
+                box.classList.remove("b")
+                box.classList.add("c")
+            }, 1000);
+        }
+            
+        
+    </script>
+</body>
+</html>

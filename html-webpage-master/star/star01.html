@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+           display: inline-block;
+            margin:200px;
+            position: relative;
+            animation: smallStar 3s infinite;
+            transition: 3s;
+        }
+
+        .box>div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+       .item1{
+        transform:translateY(40Px) translateX(40px) rotate(45deg) ;
+        border-radius: 50% 0PX 0PX 50% ;
+        bottom: 100%;
+        right: 100%;
+        background: rgb(221, 8, 8);
+       }
+       
+       .item2{
+        transform: translateY(40px) translateX(60px) rotate(45deg)  ;
+        border-radius: 50% 50% 0 0 ;
+        bottom:100%;
+        left: 100%;
+        background: rgb(221, 8, 8);
+       
+       }
+       .item3{
+        transform: rotate(45deg);
+        background:  rgb(221, 8, 8);
+       }
+       @keyframes smallStar{
+        0%{
+            transform:scale(0.2)
+        }
+        50%{
+            transform:scale(1)
+        }
+        100%{
+            transform:scale(0.5)
+        }
+        
+       }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"> </div>
+        
+    </div>
+</body>
+</html>

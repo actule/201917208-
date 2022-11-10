@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content{ 
+            position: relative;
+           display: inline-block;
+           margin: 200px;
+           transition: all 3s;
+        }
+        #content:hover {
+            transform:scale(1.5) ;
+        }
+        .item{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+     
+        }
+        .item03{
+            transform:rotate(45deg);
+            background: red;
+        }
+        .item02{
+            top:100%;
+            right:100%;
+            transform:translateX(40px)  translateY(-60px) rotate(45deg);
+            border-radius:  50% 0 0 50% ;
+            background: red;
+        }
+        .item01{
+            transform:translateX(60px)  translateY(40px) rotate(45deg);
+            bottom:100%;
+            left:100%;
+            border-radius: 50%  50% 0  0 ;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="item item01"></div>
+        <div class="item item02"></div>
+        <div class="item item03"></div>
+    </div>
+</body>
+</html>
